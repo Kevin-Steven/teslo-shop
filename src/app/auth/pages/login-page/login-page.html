@@ -1,0 +1,43 @@
+<form class="flex flex-col gap-5" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-2">Bienvenido</h1>
+  <p class="text-gray-500 mb-2">Bienvenido! Por favor, introduzca sus datos.</p>
+
+  <!-- Email input -->
+  <div>
+    <label class="block text-base font-semibold text-gray-800 mb-2" for="email">Email</label>
+    <input type="email" placeholder="Correo electronico" class="input input-bordered w-full text-gray-600 bg-white"
+      formControlName="email" />
+  </div>
+
+  <!-- Password input -->
+  <div>
+    <label class="block text-base font-semibold text-gray-800 mb-2" for="password">Password</label>
+    <input type="password" placeholder="Contraseña" class="input input-bordered w-full bg-white text-gray-600"
+      formControlName="password" />
+  </div>
+
+
+  <!-- Login button -->
+  <button type="submit"
+    class="btn btn-block bg-gray-900 text-white text-base font-semibold border-none mb-1 hover:bg-gray-800">
+    Login
+  </button>
+
+  <!-- Sign up link -->
+  <p class="text-center mt-4 text-gray-500 text-base">
+    ¿No tienes una cuenta?
+    <a routerLink="/auth/register" class="text-gray-900 font-bold hover:underline">Registrate aquí</a>
+  </p>
+
+</form>
+
+@if(hasError()) {
+<div role="alert" class="alert alert-error animate-fadeIn fixed bottom-5 right-5 w-60">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+  <span>Por favor revise la información ingresada.</span>
+</div>
+}
